@@ -17,9 +17,9 @@ d3.json(geoData).then(function (data) {
             return L.circleMarker(coordinates, {    
                 radius: markerSize(feature.properties.mag),
                 fillColor: markerColor(feature.geometry.coordinates[2]),
-                color: "black",
-                weight: 0.5,
-                fillOpacity: 0.5
+                color: markerColor(feature.geometry.coordinates[2]),
+                weight: 0.75,
+                fillOpacity: 0.25
             });
         },
         onEachFeature: function(feature, layer){
@@ -48,7 +48,7 @@ d3.json(geoData).then(function (data) {
 
 //functions used to change the marker to indicate the different earthquakes
 function markerSize(magnitude) {
-    return magnitude * 2;
+    return magnitude * 5;
 }
 
 function markerColor(depth) {
